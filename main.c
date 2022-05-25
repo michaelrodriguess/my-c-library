@@ -176,15 +176,19 @@ int main(void)
 	printf("String src: %s\n", strlcat_src);
 	printf("String dest: %s\n\n", strlcat_dest);
 
-	result_strlcat = strlcat(strlcat_dest, strlcat_src, 14);
+	result_strlcat = strlcat(strlcat_dest, strlcat_src, 15);
 	printf("Usando a funcao original -> %zu\n\n", result_strlcat);
 	printf("String src: %s\n", strlcat_src);
 	printf("String dest: %s\n\n", strlcat_dest);
 
-	result_strlcat = ft_strlcat(strlcat_dest, strlcat_src, 14);
-	printf("Usando a funcao ft -------> %zu\n\n", result_strlcat);
-	printf("String src: %s\n", strlcat_src);
-	printf("String dest: %s\n\n", strlcat_dest);
+	char strlcat_src1[15] = "Michael 42";
+	char strlcat_dest1[15] = "Ola";
+	size_t result_strlcat1;
+
+	result_strlcat1 = ft_strlcat(strlcat_dest1, strlcat_src1, 15);
+	printf("Usando a funcao ft -------> %zu\n\n", result_strlcat1);
+	printf("String src: %s\n", strlcat_src1);
+	printf("String dest: %s\n\n", strlcat_dest1);
 	
 	//ft_toupper
 	printf("\033[0;33m----------ft_toupper----------\n\033[0m");
@@ -257,7 +261,7 @@ int main(void)
 	printf("\033[0;33m----------ft_strnstr----------\n\033[0m");
 	printf("Abaixo segue o script para localizar uma substring.\n\n");
 
-	char str[] = "0123456789";
+	char str[] = "123456789";
 	char str_tofind[] = "567";
 
 	printf("Usando a funcao Original -> %s\n", strnstr(str, str_tofind, 9));	
@@ -464,6 +468,17 @@ int main(void)
 	int fd_putnbr_love = open("test_fd_putnbr_love.txt", O_RDWR);
 	ft_putnbr_fd(love, fd_putnbr_love);
 	close(fd_putnbr_love);
+	
 
+	printf("\033[0;34m------------------------------FUNCÕES BONUS------------------------------\n\n\033[0m");
+
+
+	//ft_lstnew
+	printf("\033[0;33m----------ft_lstnew----------\n\033[0m");
+	
+	char *test_lstnew = "Just do it";
+
+	t_list *fofoca = ft_lstnew(test_lstnew);
+	printf("%s\n", fofoca->content); 
 
 }

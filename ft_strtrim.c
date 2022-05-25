@@ -6,57 +6,31 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:16:48 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 14:29:07 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:37:51 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_isset(char c, const char *set)
 {
-	int		i;
-	int		j;
-	size_t	start;
-	size_t	s1_end;
-	char	*temp;
-	int		c;
+	while (*set && c != *set)
+		set++;
+	if (c == *set)
+		return (1);
+	return (0);
+}
 
-	c = 0;
-	start = 0;
-	i = 0;
-	s1_end = ft_strlen(s1);
-		j = 0;
-	while (set[j])
-	{	
-		if (s1[i] == set[j])
-		{
-			start = start + 1;
-			i++;
-			j--;
-		}
-		j++;
-		if (set[j] == '\0')
-			break ;
-	}
-	j = 0;
-	while (s1_end > start)
-	{
-		if (s1[s1_end - 1] == set[j])
-		{
-			s1_end = s1_end - 1;
-			j--;
-		}
-		j++;
-		if (set[j] == '\0')
-			break ;
-	}
-	temp = malloc((s1_end - start) + 1);
-	while (start < s1_end)
-	{
-		temp[c] = s1[start];
-		start++;
-		c++;
-	}
-	temp[c] = '\0';
-	return (temp);
+char	*ft_strtrim(char const *s1, char const *set)
+{	
+	int	len_s1;
+
+	if (!s1)
+		return (0);
+	while (*s1 && ft_isset(*s1, set))
+		s1++;
+	len_s1 = ft_strlen(s1);
+	while (len_s1 && ft_isset(s1[len_s1], set))
+		len_s1--;
+	return (ft_substr(s1, 0, len_s1 + 1));
 }

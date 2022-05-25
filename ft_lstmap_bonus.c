@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 16:24:58 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/16 16:38:18 by microdri         ###   ########.fr       */
+/*   Created: 2022/05/24 14:50:42 by microdri          #+#    #+#             */
+/*   Updated: 2022/05/24 14:50:48 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
-{	
-	char	*temp;
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*newlist;
+	t_list	*newnode;
 
-	temp = (char *) s;
-	while (*temp != (char) c)
+	newlist = NULL;
+	while (lst)
 	{
-		if (*temp == '\0')
-			return (0);
-		temp++;
+		newnode = ft_lstnew((*f)(lst->content));
+		if (!newnode)
+		{
+			ft_lstclear(&newlist, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&newlist, newnode);
+		lst = lst->next;
 	}
-	return (temp);
+	return (newlist);
 }

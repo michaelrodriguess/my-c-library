@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:05:28 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 14:17:11 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/25 14:05:07 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,22 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int	len;
-	unsigned int	i;
-	unsigned int	j;
+	size_t	i;
 
-	j = 0;
+	if (!*src)
+		return (ft_strlen(dest));
+	if (!size)
+		return (ft_strlen(src));
 	i = 0;
-	len = ft_strlen(src);
-	while (dest[i] && size)
+	while (dest[i] != '\0')
+		i++;
+	while (*src && i < size - 1)
 	{
-		size--;
+		dest[i] = *src++;
 		i++;
 	}
-	while (src[i] && size > 1)
-	{
-		dest[i + j] = src[j];
-		size--;
-		j++;
-	}	
-	if (size == 1)
-	{
-		dest[i + j] = '\0';
-	}
-	return (i + j);
+	if (i > size - 1)
+		return (ft_strlen(src) + size);
+	dest[i] = '\0';
+	return (i + ft_strlen(src));
 }

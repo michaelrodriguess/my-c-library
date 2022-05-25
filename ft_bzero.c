@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 10:54:34 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 10:33:38 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:59:31 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*cast;
+	char	*cast_s;
 
-	cast = s;
-	while (n > 0 && *cast)
+	cast_s = s;
+	while (n > 0 && *cast_s)
 	{
-		*cast++ = 0;
+		*cast_s++ = 0;
 		n--;
 	}
 }

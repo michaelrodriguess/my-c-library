@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:28:54 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 14:19:45 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:38:37 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*temp;
 	int		i;
 
-	temp = malloc(len + 1);
+	if (!s)
+		return (0);
+	temp = malloc((len + 1) * sizeof(char));
 	if (temp == NULL)
 		return (NULL);
+	if (start >= ft_strlen(s))
+		return (temp);
 	i = 0;
-	while (len)
+	while (len > 0)
 	{
-		temp[i] = s[start++];
+		temp[i] = s[start];
+		start++;
 		len--;
 		i++;
 	}
+	temp[i] = '\0';
 	return (temp);
 }

@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 13:33:53 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 14:15:34 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/16 16:25:22 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	csrc = (char *) src;
 	cdest = (char *) dest;
 	i = 0;
-	while (csrc[i] && i < n)
+	if (!csrc && !cdest && n > 0)
+		return (0);
+	while (i < n)
 	{
 		cdest[i] = csrc[i];
 		i++;

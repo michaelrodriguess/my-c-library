@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 17:12:12 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 14:38:22 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/16 18:06:23 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	*ft_itoa(int n)
 
 	digits = ft_count_digit(n);
 	to_string = malloc(digits + 1 * sizeof(char));
+	if (to_string == NULL)
+		return (NULL);
 	to_string[digits] = '\0';
 	aux_nbr = n;
 	if (n < 0)

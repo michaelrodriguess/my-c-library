@@ -6,29 +6,26 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 08:54:16 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 11:52:24 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:37:02 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*temp;
-	int		len;
+	int		size;
 
-	len = 0;
 	temp = (char *) s;
-	while (*temp)
+	size = ft_strlen(s);
+	while (size >= 0)
 	{
-		temp++;
-		len++;
-	}
-	while (len > 0)
-	{
-		if (*temp == c)
+		if (temp[size] == (char) c)
 		{
-			return (temp);
+			return (temp + size);
 		}
-		temp--;
+		size--;
 	}
 	return (0);
 }

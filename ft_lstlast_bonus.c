@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 16:24:58 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/16 16:38:18 by microdri         ###   ########.fr       */
+/*   Created: 2022/05/25 09:14:31 by microdri          #+#    #+#             */
+/*   Updated: 2022/05/25 09:14:34 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
-{	
-	char	*temp;
+t_list	*ft_lstlast(t_list *lst)
+{
+	t_list	*no;
 
-	temp = (char *) s;
-	while (*temp != (char) c)
+	no = lst;
+	while (no)
 	{
-		if (*temp == '\0')
-			return (0);
-		temp++;
+		if (no->next == NULL)
+			return (no);
+		no = no->next;
 	}
-	return (temp);
+	return (NULL);
 }

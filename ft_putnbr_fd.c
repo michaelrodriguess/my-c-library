@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:19:35 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 14:54:03 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/23 14:26:07 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	nbr;
-
-	nbr = n;
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
 		return ;
 	}
-	if (nbr < 0)
+	if (n < 0)
 	{
 		write(fd, "-", 1);
-		nbr = -nbr;
+		n = -n;
 	}
-	if (nbr > 9)
+	if (n > 9)
 	{
-		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(n / 10, fd);
 	}
-	nbr = nbr % 10 + '0';
-	write(fd, &nbr, 1);
+	n = n % 10 + '0';
+	write(fd, &n, 1);
 }

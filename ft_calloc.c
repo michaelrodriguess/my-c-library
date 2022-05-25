@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 14:26:31 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 14:12:55 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/25 13:23:38 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*ft_calloc(size_t count, size_t size)
 		size = 1;
 	}
 	p = malloc(count * size);
+	if (!p)
+		return (NULL);
 	if (p)
 	{
 		ft_bzero(p, count * size);

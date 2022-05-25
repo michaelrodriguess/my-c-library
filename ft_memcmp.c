@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 12:25:21 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 14:00:07 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/16 16:30:00 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	p_s1 = (unsigned char *) s1;
 	p_s2 = (unsigned char *) s2;
 	i = 0;
-	while ((p_s1[i] || p_s2[i]) && i < n)
-	{
-		if (p_s1[i] != p_s2[i])
+	if (n != 0)
+	{	
+		while (i < n)
 		{
-			return ((unsigned char)(p_s1[i]) - (unsigned char)(p_s2[i]));
+			if (p_s1[i] != p_s2[i])
+			{
+				return ((unsigned char)(p_s1[i]) - (unsigned char)(p_s2[i]));
+			}
+			i++;
 		}
-		i++;
 	}
 	return (0);
 }

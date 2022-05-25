@@ -6,15 +6,13 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 13:00:56 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/14 14:14:18 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/17 16:29:44 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
-
-char	*ft_strcpy(char *dest, char *src)
+static char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
