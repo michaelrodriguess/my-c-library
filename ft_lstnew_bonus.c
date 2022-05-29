@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:31:21 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/24 14:31:54 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:22:37 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ t_list	*ft_lstnew(void *content)
 	if (newlist == NULL)
 		return (0);
 	newlist->content = content;
+	newlist->next = NULL;
 	return (newlist);
 }

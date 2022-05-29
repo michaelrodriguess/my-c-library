@@ -1,2 +1,0 @@
-compila:
-		$(CC) $(CFLAGS) main.c $(OBJS) $(OBJSB)
