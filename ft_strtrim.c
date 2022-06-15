@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:16:48 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/24 13:37:51 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/30 15:26:04 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {	
 	int	len_s1;
 
-	if (!s1)
+	if (!s1 || !set)
 		return (0);
 	while (*s1 && ft_isset(*s1, set))
 		s1++;
