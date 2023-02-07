@@ -1,77 +1,73 @@
-SRCS	= ft_isalpha.c \
-		  ft_isdigit.c \
-		  ft_isalnum.c \
-		  ft_isascii.c \
-		  ft_isprint.c \
-		  ft_strlen.c \
-		  ft_memset.c \
-		  ft_bzero.c \
-		  ft_memcpy.c \
-		  ft_memmove.c \
-		  ft_strlcpy.c \
-		  ft_strlcat.c \
-		  ft_toupper.c \
-		  ft_tolower.c \
-		  ft_strchr.c \
-		  ft_strrchr.c \
-		  ft_strncmp.c \
-		  ft_memchr.c \
-		  ft_memcmp.c \
-		  ft_strnstr.c \
-		  ft_atoi.c \
-		  ft_calloc.c \
-		  ft_strdup.c \
-		  ft_substr.c \
-		  ft_strjoin.c \
-		  ft_strtrim.c \
-		  ft_split.c \
-		  ft_itoa.c \
-		  ft_strmapi.c \
-		  ft_striteri.c \
-		  ft_putchar_fd.c \
-		  ft_putstr_fd.c \
-		  ft_putendl_fd.c \
-		  ft_putnbr_fd.c \
-
-SRCSB	= ft_lstnew_bonus.c \
-		  ft_lstadd_front_bonus.c \
-		  ft_lstsize_bonus.c \
-		  ft_lstlast_bonus.c \
-		  ft_lstadd_back_bonus.c \
-		  ft_lstdelone_bonus.c \
-		  ft_lstclear_bonus.c \
-		  ft_lstiter_bonus.c \
-		  ft_lstmap_bonus.c \
+SRCS	= ./tester/main.c \
+		  ./sources/ft_isalpha.c \
+		  ./sources/ft_isdigit.c \
+		  ./sources/ft_isalnum.c \
+		  ./sources/ft_isascii.c \
+		  ./sources/ft_isprint.c \
+		  ./sources/ft_strlen.c \
+		  ./sources/ft_memset.c \
+		  ./sources/ft_bzero.c \
+		  ./sources/ft_memcpy.c \
+		  ./sources/ft_memmove.c \
+		  ./sources/ft_strlcpy.c \
+		  ./sources/ft_strlcat.c \
+		  ./sources/ft_toupper.c \
+		  ./sources/ft_tolower.c \
+		  ./sources/ft_strchr.c \
+		  ./sources/ft_strrchr.c \
+		  ./sources/ft_strncmp.c \
+		  ./sources/ft_memchr.c \
+		  ./sources/ft_memcmp.c \
+		  ./sources/ft_strnstr.c \
+		  ./sources/ft_atoi.c \
+		  ./sources/ft_calloc.c \
+		  ./sources/ft_strdup.c \
+		  ./sources/ft_substr.c \
+		  ./sources/ft_strjoin.c \
+		  ./sources/ft_strtrim.c \
+		  ./sources/ft_split.c \
+		  ./sources/ft_itoa.c \
+		  ./sources/ft_strmapi.c \
+		  ./sources/ft_striteri.c \
+		  ./sources/ft_putchar_fd.c \
+		  ./sources/ft_putstr_fd.c \
+		  ./sources/ft_putendl_fd.c \
+		  ./sources/ft_putnbr_fd.c \
+		  ./sources/ft_lstnew_bonus.c \
+		  ./sources/ft_lstadd_front_bonus.c \
+		  ./sources/ft_lstsize_bonus.c \
+		  ./sources/ft_lstlast_bonus.c \
+		  ./sources/ft_lstadd_back_bonus.c \
+		  ./sources/ft_lstdelone_bonus.c \
+		  ./sources/ft_lstclear_bonus.c \
+		  ./sources/ft_lstiter_bonus.c \
+		  ./sources/ft_lstmap_bonus.c \
 			
 OBJS	= $(SRCS:.c=.o)
-OBJSB	= $(SRCSB:.c=.o)
-CC		= cc
+CC		= @cc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror
-NAME	= libft.a
-LIBC	= ar -rcs
+NAME	= main
+RMCOLOR	= \033[0m
+YELLOW	= \033[0;33m
+RED		= \033[0;31m
 
 
-.c.o:
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I .
-
-$(NAME):	$(OBJS) $(OBJSB)	
-		$(LIBC) $(NAME) $(OBJS) $(OBJSB)
+$(NAME):	$(OBJS)
+		@echo "$(RED)compiling ...$(RMCOLOR)"
+		$(CC) $(SRCS) -o $(NAME)
+		@echo "$(YELLOW)SUCCESS😎$(RMCOLOR)"
 
 all:	$(NAME)
 
 
 clean:
-		$(RM) $(OBJS) $(OBJSB)
+		@$(RM) $(OBJS)
 
 fclean:	clean
-		$(RM) $(NAME)
+		@$(RM) $(NAME)
 
 re:	fclean all
 
-bonus:	$(NAME)
-		$(CC) $(CFLAGS) -c $(SRCSB)
-		ar -qs $(NAME) $(OBJSB)
-
-.PHONY:	all clean fclean re bonus
+.PHONY:	all clean fclean re
 
