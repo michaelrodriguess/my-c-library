@@ -1,11 +1,11 @@
-# My own c library
+<h1 align="center">My Own C Library</h1>
 
 In this project I have created some functions that I will use in other projects.
 
-#### Install
+## 🛠 Install
 ```bash
 git clone https://github.com/michaelrodriguess/my-own-c-library.git
 ```
-#### Usage
+### 💻 Usage
 
 play around with the functions
