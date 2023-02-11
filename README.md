@@ -1,4 +1,4 @@
-<h1 align="center">My Own C Library</h1>
+<h1 align="center">My C Library</h1>
 
 In this project I have created some functions that I will use in other projects.
 
