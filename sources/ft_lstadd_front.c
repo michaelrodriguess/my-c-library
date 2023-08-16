@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
+/*   By: microdri <microdri@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 13:37:26 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/16 19:01:33 by microdri         ###   ########.fr       */
+/*   Created: 2023/08/04 15:47:43 by microdri          #+#    #+#             */
+/*   Updated: 2023/08/04 15:47:46 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
+	if (!new)
 		return ;
-	while (s[i] != '\0')
-	{
-		write (fd, &s[i], 1);
-		i++;
-	}
-	write (fd, "\n", 1);
+	new->next = lst[0];
+	*lst = new;
 }

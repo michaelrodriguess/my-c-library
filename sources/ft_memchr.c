@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:27:42 by microdri          #+#    #+#             */
-/*   Updated: 2023/02/07 14:56:15 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:42:56 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (pointer_s[i] == (unsigned char) c)
 		{
-			return ((void *)&s[i]);
+			return ((void *)&pointer_s[i]);
 		}
 		i++;
 	}

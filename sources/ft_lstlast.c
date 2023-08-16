@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
+/*   By: microdri <microdri@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 14:34:35 by microdri          #+#    #+#             */
-/*   Updated: 2023/02/07 14:54:45 by microdri         ###   ########.fr       */
+/*   Created: 2023/08/04 15:48:35 by microdri          #+#    #+#             */
+/*   Updated: 2023/08/04 15:48:36 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (!new)
-		return ;
-	new->next = lst[0];
-	*lst = new;
+	t_list	*no;
+
+	no = lst;
+	while (no)
+	{
+		if (no->next == NULL)
+			return (no);
+		no = no->next;
+	}
+	return (NULL);
 }

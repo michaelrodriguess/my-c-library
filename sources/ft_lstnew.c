@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
+/*   By: microdri <microdri@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 14:41:22 by microdri          #+#    #+#             */
-/*   Updated: 2023/02/07 14:54:07 by microdri         ###   ########.fr       */
+/*   Created: 2023/08/04 15:49:17 by microdri          #+#    #+#             */
+/*   Updated: 2023/08/04 15:49:18 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_list	*ft_lstnew(void *content)
 {
-	t_list	*lastnode;
+	t_list	*newlist;
 
-	if (*lst == NULL || !lst)
-		*lst = new;
-	else
-	{
-		lastnode = ft_lstlast(*lst);
-			lastnode->next = new;
-	}
+	newlist = malloc(sizeof(t_list));
+	if (newlist == NULL)
+		return (0);
+	newlist->content = content;
+	newlist->next = NULL;
+	return (newlist);
 }

@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:28:54 by microdri          #+#    #+#             */
-/*   Updated: 2023/02/07 15:01:04 by microdri         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:16:21 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	j = 0;
 	while (s[++i])
 	{
-		if(i >= start && j < len)
+		if (i >= start && j < len)
 		{
 			temp[j++] = s[i];
 		}
@@ -35,4 +35,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	temp[j] = '\0';
 	return (temp);
 }
-

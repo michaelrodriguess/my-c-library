@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_print_point.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 08:26:01 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/16 17:03:38 by microdri         ###   ########.fr       */
+/*   Created: 2022/06/21 19:47:49 by microdri          #+#    #+#             */
+/*   Updated: 2022/06/22 17:56:53 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "ft_printf.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+static unsigned long	ft_count_digit(unsigned long n)
 {
-	size_t	i;
+	unsigned long	digits;
 
-	if ((char *) src > (char *) dest)
+	digits = 0;
+	while (n > 15)
 	{
-		i = 0;
-		while (i < n)
-		{
-			((char *)dest)[i] = ((char *)src)[i];
-			i++;
-		}
+		n = n / 16;
+		digits++;
 	}
-	i = 0;
-	if ((char *) dest > (char *) src)
+	digits++;
+	return (digits);
+}
+
+unsigned long	ft_print_point(unsigned long n, char *str)
+{
+	unsigned long		count_decimal;
+
+	count_decimal = ft_count_digit(n);
+	if (n > 15)
 	{
-		i = n - 1;
-		while ((int) i >= 0)
-		{
-			((char *)dest)[i] = ((char *)src)[i];
-			i--;
-		}
+		ft_print_point(n / 16, str);
 	}
-	return ((char *) dest);
+	n = n % 16;
+	write(1, &str[n], 1);
+	return (count_decimal);
 }

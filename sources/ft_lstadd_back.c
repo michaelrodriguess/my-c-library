@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
+/*   By: microdri <microdri@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 14:47:03 by microdri          #+#    #+#             */
-/*   Updated: 2023/02/07 14:54:56 by microdri         ###   ########.fr       */
+/*   Created: 2023/08/04 15:47:00 by microdri          #+#    #+#             */
+/*   Updated: 2023/08/04 15:47:11 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*no;
+	t_list	*lastnode;
 
-	while (*lst)
+	if (*lst == NULL || !lst)
+		*lst = new;
+	else
 	{
-		no = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = no;
+		lastnode = ft_lstlast(*lst);
+			lastnode->next = new;
 	}
 }

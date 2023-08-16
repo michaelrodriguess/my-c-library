@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_print_digit_u.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 13:37:26 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/16 19:01:33 by microdri         ###   ########.fr       */
+/*   Created: 2022/06/21 15:03:34 by microdri          #+#    #+#             */
+/*   Updated: 2022/06/22 17:17:20 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "ft_printf.h"
 
-void	ft_putendl_fd(char *s, int fd)
+static unsigned int	ft_count_digit(unsigned int n)
 {
-	int	i;
+	unsigned int	digits;
 
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i] != '\0')
+	digits = 0;
+	while (n > 9)
 	{
-		write (fd, &s[i], 1);
-		i++;
+		n = n / 10;
+		digits++;
 	}
-	write (fd, "\n", 1);
+	digits++;
+	return (digits);
+}
+
+unsigned int	ft_print_digit_u(unsigned int n)
+{
+	unsigned int	count_decimal_u;
+
+	count_decimal_u = ft_count_digit(n);
+	if (n > 9)
+	{
+		ft_print_digit_u(n / 10);
+	}
+	n = n % 10 + '0';
+	write(1, &n, 1);
+	return (count_decimal_u);
 }

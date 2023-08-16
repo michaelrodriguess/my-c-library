@@ -6,11 +6,9 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:28:01 by microdri          #+#    #+#             */
-/*   Updated: 2023/02/07 14:53:26 by microdri         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:15:04 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/libft.h"
 
 int	ft_isascii(int c)
 {

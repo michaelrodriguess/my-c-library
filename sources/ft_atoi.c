@@ -6,7 +6,7 @@
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 08:49:09 by microdri          #+#    #+#             */
-/*   Updated: 2023/02/07 14:42:50 by microdri         ###   ########.fr       */
+/*   Updated: 2022/12/17 18:13:10 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,26 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *n)
 {
-	char		*use_nptr;
-	size_t		i;
-	size_t		signal;
-	size_t		result_value;
+	long	i;
+	int		signal;
+	long	result_value;
 
-	use_nptr = (char *) nptr;
 	result_value = 0;
 	i = 0;
 	signal = 1;
-	while (ft_isspace(use_nptr[i]))
+	while (ft_isspace(n[i]))
 		i++;
-	if (use_nptr[i] == '-' || use_nptr[i] == '+')
+	if (n[i] == '-' || n[i] == '+')
 	{
-		if (use_nptr[i] == '-')
+		if (n[i] == '-')
 			signal = -1;
 		i++;
 	}			
-	while (ft_isdigit(use_nptr[i]))
+	while (ft_isdigit(n[i]))
 	{	
-		result_value = result_value * 10 + use_nptr[i] - '0';
+		result_value = result_value * 10 + n[i] - '0';
 		i++;
 	}
 	return (result_value * signal);

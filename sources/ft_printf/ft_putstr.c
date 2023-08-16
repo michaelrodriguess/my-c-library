@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 09:14:31 by microdri          #+#    #+#             */
-/*   Updated: 2023/02/07 14:55:25 by microdri         ###   ########.fr       */
+/*   Created: 2022/06/20 16:13:35 by microdri          #+#    #+#             */
+/*   Updated: 2022/06/22 17:24:14 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_putstr(char *s)
 {
-	t_list	*no;
+	int	i;
 
-	no = lst;
-	while (no)
+	i = 0;
+	if (!s)
+		return (write(1, "(null)", 6));
+	while (s[i] != '\0')
 	{
-		if (no->next == NULL)
-			return (no);
-		no = no->next;
+		write (1, &s[i], 1);
+		i++;
 	}
-	return (NULL);
+	return (i);
 }

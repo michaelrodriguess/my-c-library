@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_print_digit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: microdri <microdr@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 17:12:12 by microdri          #+#    #+#             */
-/*   Updated: 2022/05/16 18:06:23 by microdri         ###   ########.fr       */
+/*   Created: 2022/06/20 16:44:49 by microdri          #+#    #+#             */
+/*   Updated: 2022/06/22 17:16:52 by microdri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "ft_printf.h"
 
 static int	ft_count_digit(int n)
 {
@@ -18,13 +18,12 @@ static int	ft_count_digit(int n)
 	unsigned int	aux_nbr;
 
 	digits = 0;
+	aux_nbr = n;
 	if (n < 0)
 	{
 		digits += 1;
 		aux_nbr = n * -1;
 	}
-	else
-		aux_nbr = n;
 	while (aux_nbr > 9)
 	{
 		aux_nbr = aux_nbr / 10;
@@ -34,26 +33,26 @@ static int	ft_count_digit(int n)
 	return (digits);
 }
 
-char	*ft_itoa(int n)
+int	ft_print_digit(int n)
 {
-	char			*to_string;
-	int				digits;
-	unsigned int	aux_nbr;
+	int	count_decimal;
 
-	digits = ft_count_digit(n);
-	to_string = malloc(digits + 1 * sizeof(char));
-	if (to_string == NULL)
-		return (NULL);
-	to_string[digits] = '\0';
-	aux_nbr = n;
-	if (n < 0)
-		aux_nbr = n * -1;
-	while (digits--)
+	count_decimal = ft_count_digit(n);
+	if (n == -2147483648)
 	{
-		to_string[digits] = (aux_nbr % 10) + '0';
-		aux_nbr = aux_nbr / 10;
+		write(1, "-2147483648", 11);
+		return (count_decimal);
 	}
 	if (n < 0)
-		to_string[0] = '-';
-	return (to_string);
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	if (n > 9)
+	{
+		ft_print_digit(n / 10);
+	}
+	n = n % 10 + '0';
+	write(1, &n, 1);
+	return (count_decimal);
 }
