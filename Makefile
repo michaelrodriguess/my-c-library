@@ -21,7 +21,7 @@ SRCS	= ./sources/ft_isalpha.c ./sources/ft_isdigit.c \
 		./sources/ft_lstdelone.c ./sources/ft_lstclear.c \
 		./sources/ft_lstiter.c ./sources/ft_lstmap.c 
 
-NAME		= libft.a
+NAME		= libft
 OBJS		= $(SRCS:.c=.o)
 CC			= cc
 RM			= rm -f
